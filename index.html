@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive pricing component</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="header">
+    <h1>Simple, traffic-based pricing</h1>
+    <p>Sign-up for our 30-day trial. No credit card required.</p>
+  </div>
+  <div class="content grid-container">
+    <h2 id="views">100k pageviews</h2>
+    <input type="range" id="range" min="1" max="5"/>
+    <div class="div-price">
+      <p id="price">$16.00</p>
+      <p>/ month</p>
+    </div>
+    <div class="div-check">
+      Monthly Billing 
+        <div>
+          <div class="toggle-button-cover">
+            <div class="button-cover">
+              <div class="button r" id="button-2">
+                <input type="checkbox" class="checkbox" id="checkbox" onclick="check1()"/>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        Yearly Billing <p class="offer-mobile">-25%</p> <p class="offer-desktop">-25% discount</p>
+      
+      
+    </div>
+  </div>
+  <div class="content flex-container">
+    <ul>
+      <li>Unlimited webstites</li>
+      <li>100% data ownership</li>
+      <li>Email reports</li>
+    </ul>
+
+    <button onclick="location.reload()">Start my trial</button>
+  </div>
+
+  <script>
+    const rangeInputs = document.querySelectorAll('input[type="range"]')
+    const numberInput = document.querySelector('input[type="number"]')
+    var views = document.getElementById("views");
+    var price = document.getElementById("price");
+    var check = document.getElementById("checkbox");
+    var multiply = 1;
+    
+
+function handleInputChange(e) {
+  let target = e.target
+  if (e.target.type !== 'range') {
+    target = document.getElementById('range')
+  } 
+  const min = target.min
+  const max = target.max
+  const val = target.value
+
+  var x = val;
+  
+  target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+
+  result(x);
+}
+
+function check1(){
+  if(check.checked == true){
+    multiply = 0.75;
+  }
+  else{
+    multiply = 1;
+  }
+  var x = document.getElementById('range').value;
+  result(x);
+}
+
+function result(x){
+  if(x == 1){
+    views.innerHTML = "10k pageviews";
+    price.innerHTML = "$" + Math.round(8 * multiply) + ".00";
+  }
+  else if(x == 2){
+    views.innerHTML = "50k pageviews";
+    price.innerHTML = "$" + Math.round(12 * multiply) + ".00";
+  }
+  else if(x == 3){
+    views.innerHTML = "100k pageviews";
+    price.innerHTML = "$" + Math.round(16 * multiply) + ".00";
+  }
+  else if(x == 4){
+    views.innerHTML = "500k pageviews";
+    price.innerHTML = "$" + Math.round(24 * multiply) + ".00";
+  }
+  else if(x == 5){
+    views.innerHTML = "1m pageviews";
+    price.innerHTML = "$" + Math.round(36 * multiply) + ".00";
+  }
+}
+
+rangeInputs.forEach(input => {
+  input.addEventListener('input', handleInputChange)
+})
+
+numberInput.addEventListener('input', handleInputChange)
+  </script>
+</body>
+</html>

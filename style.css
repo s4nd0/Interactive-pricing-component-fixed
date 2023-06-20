@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&family=Roboto:wght@400;700&display=swap');
+
+:root{
+    --soft-cyan: hsl(174, 77%, 80%);
+    --strong-cyan: hsl(174, 86%, 45%);
+    --light-grayish-red: hsl(14, 92%, 95%);
+    --light-red: hsl(15, 100%, 70%);
+    --pale-blue: hsl(226, 100%, 87%);
+
+    --very-pale-blue: hsl(230, 100%, 99%);
+    --light-grayish-blue1: hsl(224, 65%, 95%);
+    --light-grayish-blue2: hsl(223, 50%, 87%);
+    --grayish-blue: hsl(225, 20%, 60%);
+    --dark-desaturated-blue: hsl(227, 35%, 25%);
+}
+
+*{
+    font-family: 'Manrope';
+}
+*:focus {
+    outline: none;
+  }
+#button-2 .knobs:before,
+#button-2 .knobs:after {
+  content: "YES";
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  width: 14px;
+  height: 4px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: 0.3s ease all;
+}
+
+#button-2 .knobs:before {
+  content: "";
+}
+
+#button-2 .knobs:after {
+  content: "";
+}
+
+#button-2 .knobs:after {
+  right: -28px;
+  left: auto;
+  background-color: var(--strong-cyan);
+}
+
+#button-2 .checkbox:checked + .knobs:before {
+  left: -28px;
+}
+
+#button-2 .checkbox:checked + .knobs:after {
+  right: 6px;
+}
+
+#button-2 .checkbox:checked ~ .layer {
+  background-color: var(--soft-cyan);
+}
+  
+  .toggle-button-cover {
+    display: table-cell;
+    position: relative;
+    width: 80px;
+    height: 30px;
+    box-sizing: border-box;
+    top: 5px;
+  }
+  
+  .button-cover {
+
+    background-color: #fff;
+
+  }
+  
+  .button-cover:before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: #d7e3e3;
+    font-size: 12px;
+    line-height: 1;
+    padding: 5px;
+  }
+  
+  .button-cover,
+  .knobs,
+  .layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .button {
+    position: relative;
+    top: 50%;
+    width: 60px;
+    height: 30px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+  }
+  
+  .button.r,
+  .button.r .layer {
+    border-radius: 100px;
+  }
+  
+  .button.b2 {
+    border-radius: 2px;
+  }
+  
+  .checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  .knobs {
+    z-index: 2;
+  }
+  
+  .layer {
+    width: 100%;
+    background-color: var(--light-grayish-blue2);
+    transition: 0.3s ease all;
+    z-index: 1;
+  }
+
+body{
+    display: flex;
+    flex-direction: column;
+    background: url(./images/pattern-circles.svg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 80px;
+    background-color: var(--light-grayish-blue1);
+}
+.header{
+    margin: 100px auto 50px auto;
+    width: 90%;
+    text-align: center;
+    max-width: 1000px;
+}
+.header h1{
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--dark-desaturated-blue);
+}
+.header p{
+    font-size: 15px;
+    color: var(--grayish-blue);
+}
+.content{
+    background-color: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 1px auto;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.content h2{
+    grid-area: views;
+    margin-top: 3rem;
+    font-size: 15px;
+    color: var(--grayish-blue);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+.content .div-price{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    grid-area: price;
+}
+.content p{
+    color: var(--grayish-blue);
+    margin: 5px;
+}
+.content #price{
+    
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark-desaturated-blue);
+}
+.content .div-check{
+  grid-area: check;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    justify-content: center;
+    color: var(--grayish-blue);
+    margin: 30px 10px;
+    padding-left: 38px;
+}
+.content .offer-mobile{
+    font-size: 12px;
+    background-color: var(--light-grayish-red);
+    padding: 3px 5px;
+    border-radius: 10px;
+    color: var(--light-red);
+    font-weight: 800;
+}
+.content .offer-desktop{
+    display: none;
+}
+
+.content ul{
+    list-style-image: url(./images/icon-check.svg);
+    list-style-position: inside;
+    padding: 0;
+    color: var(--grayish-blue);
+}
+.content ul li{
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.content button{
+    font-size: 15px;
+    margin: 20px 0 40px;
+    color: var(--pale-blue);
+    background-color: var(--dark-desaturated-blue);
+    padding: 14px 45px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.content button:hover{
+    color: white;
+}
+
+input[type="range"] {
+    grid-area: zip;
+    -webkit-appearance: none;
+    width: 80%;
+    height: 7px;
+    background: var(--light-grayish-blue1);
+    border-radius: 5px;
+    background-image: linear-gradient(var(--soft-cyan), var(--soft-cyan));
+    background-size: 50% 100%;
+    background-repeat: no-repeat;
+  }
+  input,
+  output {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1em;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: hsl(174, 57%, 71%);
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    cursor: pointer;
+    box-shadow: 0 3px 30px var(--strong-cyan);
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: hsl(174, 57%, 71%);
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    cursor: pointer;
+    box-shadow: 0 3px 30px var(--strong-cyan);
+  }
+  
+  input[type="range"]::-ms-thumb {
+    -webkit-appearance: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: hsl(174, 57%, 71%);
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    cursor: pointer;
+    box-shadow: 0 3px 30px var(--strong-cyan);
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: var(--strong-cyan);
+  }
+  
+  input[type="range"]::-moz-range-thumb:hover {
+    background-color: var(--strong-cyan);
+  }
+  
+  input[type="range"]::-ms-thumb:hover {
+    background-color: var(--strong-cyan);
+  }
+  
+  /* Input Track */
+  input[type=range]::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+  
+  input[type=range]::-moz-range-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+  
+  input[type="range"]::-ms-track {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+
+  @media screen and (min-width: 670px) {
+    .header h1{
+        font-size: 2rem;
+    }
+    .offer-desktop{
+        display: block !important;
+        font-size: 12px;
+        background-color: var(--light-grayish-red);
+        padding: 3px 5px;
+        border-radius: 10px;
+        color: var(--light-red) !important;
+        font-weight: 800;
+    }
+    .offer-mobile{
+        display: none;
+    }
+    .grid-container{
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: auto;
+      grid-template-areas: 
+      "views price"
+      "zip zip"
+      "check check";
+
+      align-items: center;
+      justify-items: center;
+      row-gap: 20px;
+    }
+    .div-check{
+      padding-left: 90px !important;
+    }
+    .flex-container
+    {
+      padding-top: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-end;
+    }
+  }
